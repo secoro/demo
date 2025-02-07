@@ -30,7 +30,7 @@ jobs:
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
-          name: java-app
+          name: demo
           path: '${{ github.workspace }}/target/*.jar'
 
   deploy:
@@ -44,7 +44,7 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
         with:
-          name: java-app
+          name: demo
       
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
@@ -52,5 +52,5 @@ jobs:
         with:
           app-name: 'seans-testapp'
           slot-name: 'Production'
-          package: '*.jar'
+          package: '*.war'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6EC36EF2993448FEB757D21CD4975478 }}
