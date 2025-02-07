@@ -52,5 +52,5 @@ jobs:
         with:
           app-name: 'seans-testapp'
           slot-name: 'Production'
-          package: '*.war'
+          package: '*.jar'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6EC36EF2993448FEB757D21CD4975478 }}
